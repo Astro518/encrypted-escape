@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encrypted Escape Event</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace; /* Techy font for that codey look */
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #111, #0A2B12, #330909);
+      background-size: 400% 400%;
+      animation: gradientAnimation 5s ease infinite; /* Animating background */
+      color: #C0FF00; /* Neon green text */
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); /* Adds a light aura effect */
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: #F72A7F; /* Neon pink/red */
+      text-shadow: 3px 3px 10px #FF1493; /* Glowing pink effect */
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #00F700; /* Neon green */
+      font-size: 1.2rem;
+      margin: 0 15px;
+      padding: 10px 20px;
+      border: 2px solid #00F700;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #00F700;
+      color: #111; /* Dark background for text */
+      box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5); /* Glowing green effect on hover */
+    }
+
+    main {
+      text-align: center;
+      margin: 50px auto;
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 255, 0, 0.3);
+    }
+
+    .btn-container {
+      margin-top: 30px;
+    }
+
+    .btn-container a {
+      text-decoration: none;
+      color: #C0FF00; /* Neon green for the buttons */
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      margin: 0 10px;
+      display: inline-block;
+      border: 2px solid #C0FF00;
+      border-radius: 5px;
+      background-color: transparent;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+    }
+
+    .btn-container a:hover {
+      background-color: #C0FF00;
+      color: #111;
+      transform: scale(1.1);
+      box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.5); /* Green glowing effect on hover */
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.8);
+      color: #F72A7F; /* Neon red for footer text */
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      main p {
+        font-size: 1rem;
+      }
+
+      .btn-container a {
+        font-size: 1rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Encrypted Escape Event</h1>
+    <nav>
+      <a href="/finder">Join as Finder</a>
+      <a href="/solver1">Join as Solver 1</a>
+      <a href="/solver2">Join as Solver 2</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>
+      Welcome to the ultimate challenge! Use your skills to solve encrypted clues, navigate tricky puzzles, 
+      and escape before time runs out. Are you ready to crack the code and win the challenge?
+    </p>
+
+    <div class="btn-container">
+      <a href="/finder">Start as Finder</a>
+      <a href="/solver1">Start as Solver 1</a>
+      <a href="/solver2">Start as Solver 2</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Encrypted Escape Event | Crafted for Cyber Sentinel</p>
+  </footer>
+
+</body>
+</html>

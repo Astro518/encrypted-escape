@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <h3>Current Puzzle Statuses:</h3>
+    <ul>
+        <li>Start Puzzle Status: {{ puzzles['start'] }}</li>
+        <li>Solver 1 Answer: {{ puzzles['solver1_password']['answer'] }}</li>
+        <li>Solver 2 Answer: {{ puzzles['solver2_password']['answer'] }}</li>
+    </ul>
+</body>
+</html>

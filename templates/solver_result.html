@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .message {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 20px 0;
+        }
+        .password {
+            color: #007BFF;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        {{ message }}
+    </div>
+    {% if home %}
+        <a href="/">Back to Home</a>
+    {% endif %}
+</body>
+</html>

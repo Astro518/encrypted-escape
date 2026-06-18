@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finder</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Finder's Portal</h1>
+  </header>
+  <main>
+    <p>Enter the password found at the location:</p>
+    <form action="/finder" method="POST">
+      <label for="finder_password">Enter Finder Password:</label><br>
+      <input type="text" id="finder_password" name="finder_password" placeholder="Password" required><br>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</body>
+</html>

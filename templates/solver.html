@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ solver }} Page</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>{{ solver }} Portal</h1>
+  </header>
+  <div class="container">
+    <h2>Unlock Your Question</h2>
+    <form id="unlock-form">
+      <label for="password">Enter Password:</label>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Unlock</button>
+    </form>
+
+    <div id="question-container" style="display: none;">
+      <h2>Your Question</h2>
+      <p id="question-text"></p>
+      <form id="answer-form">
+        <label for="answer">Submit Answer:</label>
+        <input type="text" id="answer" placeholder="Answer" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const solver = "{{ solver }}";
+
+    // Unlock question
+    document.getElementById("unlock-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const password = document.getElementById("password").value;
+
+      fetch("/unlock", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ solver: solver, password: password })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success") {
+            document.getElementById("question-container").style.display = "block";
+            document.getElementById("question-text").innerText = data.question;
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(err => console.error(err));
+    });
+
+    // Submit answer
+    document.getElementById("answer-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const answer = document.getElementById("answer").value;
+
+      fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ solver: solver, answer: answer })
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(data.message);
+          if (data.status === "success") {
+            document.getElementById("answer-form").reset();
+            document.getElementById("question-container").style.display = "none";
+          }
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
+</body>
+</html>

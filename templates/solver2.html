@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solver 2</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #C0FF00; /* Neon green text */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #F72A7F;
+            text-shadow: 3px 3px 10px #FF1493;
+            z-index: 2;
+        }
+
+        .code-line {
+            position: absolute;
+            top: -50px;
+            color: #00F700;
+            font-size: 1.2rem;
+            animation: drop 4s infinite linear;
+            white-space: nowrap;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -50px;
+                opacity: 0;
+            }
+            100% {
+                top: 100%;
+                opacity: 1;
+            }
+        }
+
+        .code-line:nth-child(1) { animation-duration: 5s; animation-delay: 0s; }
+        .code-line:nth-child(2) { animation-duration: 6s; animation-delay: 1s; }
+        .code-line:nth-child(3) { animation-duration: 7s; animation-delay: 2s; }
+        .code-line:nth-child(4) { animation-duration: 6s; animation-delay: 3s; }
+        .code-line:nth-child(5) { animation-duration: 8s; animation-delay: 1s; }
+        .code-line:nth-child(6) { animation-duration: 6s; animation-delay: 0s; }
+        .code-line:nth-child(7) { animation-duration: 7s; animation-delay: 1s; }
+        .code-line:nth-child(8) { animation-duration: 6s; animation-delay: 2s; }
+        .code-line:nth-child(9) { animation-duration: 8s; animation-delay: 3s; }
+        .code-line:nth-child(10) { animation-duration: 5s; animation-delay: 1s; }
+
+        form {
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            border: 2px solid #00F700;
+            box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            font-size: 1.2rem;
+            background: #333;
+            border: 2px solid #00F700;
+            color: #C0FF00;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border: 2px solid #F72A7F;
+            box-shadow: 0px 0px 10px rgba(255, 42, 127, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.3rem;
+            color: #111;
+            background-color: #00F700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #F72A7F;
+            color: #111;
+            box-shadow: 0px 0px 10px rgba(255, 42, 127, 0.7);
+        }
+
+        .error, .message {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: #FF0000;
+        }
+
+        .message {
+            color: #32CD32;
+        }
+
+        pre {
+            background: #222;
+            padding: 15px;
+            border-radius: 5px;
+            color: #F0F0F0;
+            font-size: 1.1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            box-shadow: 0px 4px 6px rgba(0, 255, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Code falling effect -->
+    <div class="code-line" style="left: 5%;">for i in range(100):</div>
+    <div class="code-line" style="left: 20%;">if 'error' in logs: restart()</div>
+    <div class="code-line" style="left: 30%;">def exploit(): pass</div>
+    <div class="code-line" style="left: 40%;">try: run_secure_task()</div>
+    <div class="code-line" style="left: 60%;">response = request.get(endpoint)</div>
+    <div class="code-line" style="left: 15%;">import os, sys</div>
+    <div class="code-line" style="left: 25%;">socket.send(data)</div>
+    <div class="code-line" style="left: 35%;">while True: break</div>
+    <div class="code-line" style="left: 45%;">def decrypt_message(): pass</div>
+    <div class="code-line" style="left: 70%;">logging.debug('Status Ok')</div>
+
+    <!-- Main Content -->
+    <div>
+        <h1>Solver 2</h1>
+
+        {% if status == "locked" %}
+            <form method="post">
+                <label for="solver_password">Enter Password:</label>
+                <input type="text" name="solver_password" id="solver_password" required>
+                <button type="submit">Unlock</button>
+            </form>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        {% elif status == "unlocked" %}
+            <form method="post" action="/submit_solver2">
+                <pre>{{ question }}</pre>
+                <input type="hidden" name="current_password" value="{{ current_password }}">
+                <label for="answer">Answer:</label>
+                <input type="text" name="answer" id="answer" required>
+                <button type="submit">Submit</button>
+            </form>
+            {% if message %}
+                <p class="message">{{ message }}</p>
+            {% endif %}
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+</body>
+</html>
