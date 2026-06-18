@@ -1,0 +1,101 @@
+/* Base Styles */
+body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light grey text */
+  font-family: 'Courier New', Courier, monospace; /* Monospace font */
+  padding: 50px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #00ff00; /* Neon green headers */
+  text-shadow: 0px 0px 5px rgba(0, 255, 0, 0.5);
+}
+
+h3 {
+  color: #ff6347; /* Neon red for subheadings */
+}
+
+p {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+button, .button {
+  background-color: #333; /* Dark button background */
+  border: 2px solid #00ff00; /* Neon green border */
+  color: #00ff00;
+  font-size: 18px;
+  font-family: 'Courier New', monospace;
+  padding: 15px 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+button:hover, .button:hover {
+  background-color: #00ff00;
+  color: #121212;
+  box-shadow: 0px 0px 20px rgba(0, 255, 0, 1);
+}
+
+input[type="text"], input[type="password"], textarea {
+  background-color: #212121;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  padding: 12px;
+  width: 50%;
+  margin: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+  background-color: #333;
+  outline: none;
+  border-color: #ff6347; /* Neon red outline */
+}
+
+form {
+  margin-top: 20px;
+}
+
+.message {
+  background-color: #1e1e1e;
+  color: #00ff00;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#error-message {
+  color: #ff6347; /* Red error message */
+}
+
+#error-message:hover {
+  box-shadow: 0px 0px 5px rgba(255, 99, 71, 0.8);
+}
+
+/* Global Effects */
+a {
+  color: #00ff00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ff6347;
+}
+
+/* Animations */
+@keyframes blink {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.blinking {
+  animation: blink 1s infinite;
+}
